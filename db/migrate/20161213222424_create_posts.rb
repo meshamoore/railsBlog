@@ -7,5 +7,6 @@ class CreatePosts < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
+    add_foreign_key :posts, :users, on_delete: :cascade
   end
 end
