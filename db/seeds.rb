@@ -7,11 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
-User.create(username: "mesha", email: "foo@bar.com", password: "mesha")
-User.create(username: "christy", email: "foo@bar.com", password: "christy")
-User.create(username: "zach", email: "foo@bar.com", password: "zach")
-User.create(username: "justin", email: "foo@bar.com", password: "justin")
-User.create(username: "other", email: "foo@bar.com", password: "other")
+User.create(name: "mesha", email: "foo@bar.com", password: "mesha")
+User.create(name: "christy", email: "foo@bar.com", password: "christy")
+User.create(name: "zach", email: "foo@bar.com", password: "zach")
+User.create(name: "justin", email: "foo@bar.com", password: "justin")
+User.create(name: "other", email: "foo@bar.com", password: "other")
 
 Post.destroy_all
 Post.create(title: "post 1", content: "This is post 1.", user_id: 1)
