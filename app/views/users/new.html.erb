@@ -2,8 +2,8 @@
 
 <form action="/users" method="POST">
 	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
-    <label>User ID</label>
-    <input type="text" name="user[username]">
+    <label>Username</label>
+    <input type="text" name="user[name]">
     <br />
 
     <label>Email</label>
@@ -11,7 +11,7 @@
     <br />
 
       <label>Password</label>
-    <input type="text" name="user[password]">
+    <input type="password" name="user[password]">
     <br />
     <input type="submit">
 </form>

@@ -38,11 +38,19 @@ class PostsController < ApplicationController
     @post.content = params[:content]
 
     if params[:title].empty? || false == @post.save
-      flash[:alert] = "Failed to update post!"
+      flash[:alert] = "Failed to update title!"
       redirect_to("/posts/" + @post.id.to_s + "/edit")
     else 
-      flash[:notice] = "Post successfully updated!"
+      flash[:notice] = "Title successfully updated!"
       redirect_to("/posts")
+    end
+  
+    if params[:content].empty? || false == @post.save
+        flash[:alert] = "Failed to update post!"
+        redirect_to("/posts/" + @post.id.to_s + "/edit")
+    else 
+        flash[:notice] = "Post successfully updated!"
+        redirect_to("/posts")
     end
   end
 
