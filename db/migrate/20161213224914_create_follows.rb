@@ -8,6 +8,6 @@ class CreateFollows < ActiveRecord::Migration[5.0]
     end
     add_foreign_key :follows, :users, on_delete: :cascade
     add_foreign_key :follows, :users, column: :target_id, primary_key: :id, on_delete: :cascade
-    add_index :follows, [:user_id, :target_id], unique: true
+    add_index :follows, [:user_id, :target_id], unique: true    
   end
 end
