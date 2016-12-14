@@ -11,10 +11,10 @@
             <tr>
                 <td><%= u.id %></td>
                 <td><%= u.email %></td>
-                <td><a href="/users/<%= u.id %>">Show</a><td>
-                <td><a href="/users/<%= u.id %>/edit">Edit</a><td>
+                <td><a href="<%= user_path %>">Show</a><td>
+                <td><a href="<%= edit_user_path %>">Edit</a><td>
                 <td>
-                    <form action="/users/<%= u.id %>" method="POST">
+                    <form action="<%= user_path %>" method="POST">
                         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
                         <input type="hidden" name="_method" value="DELETE" />
                         <input type="submit" value="DELETE" />
@@ -25,4 +25,4 @@
     </tbody>
 </table>
 
-<a href="<%= new_user_path %>">NEW USER</a>
+<a href="<%= new_user_path %>">New User</a>
