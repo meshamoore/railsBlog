@@ -3,4 +3,8 @@ Rails.application.routes.draw do
   resources :users
 
   resources :posts
+
+  resources :comments, except: [:index, :edit, :update]
+
+  resources :follows, except: [:index, :edit, :update]
 end
