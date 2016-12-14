@@ -1,6 +1,7 @@
 <table>
     <thead>
         <th>ID</th>
+        <th>NAME</th>
         <th>EMAIL</th>
         <th><!-- show button --></th>
         <th><!-- edit button --></th>
@@ -10,6 +11,7 @@
         <% @users.each do |u| %>
             <tr>
                 <td><%= u.id %></td>
+                <td><%= u.name %></td>
                 <td><%= u.email %></td>
                 <td><a href="<%= user_path(u.id) %>">Show</a><td>
                 <td><a href="<%= edit_user_path(u.id) %>">Edit</a><td>
