@@ -1,0 +1,28 @@
+<table>
+    <thead>
+        <th>ID</th>
+        <th>EMAIL</th>
+        <th><!-- show button --></th>
+        <th><!-- edit button --></th>
+        <th><!-- delete button --></th>
+    </thead>
+    <tbody>
+        <% @users.each do |u| %>
+            <tr>
+                <td><%= u.id %></td>
+                <td><%= u.email %></td>
+                <td><a href="<%= user_path %>">Show</a><td>
+                <td><a href="<%= edit_user_path %>">Edit</a><td>
+                <td>
+                    <form action="<%= user_path %>" method="POST">
+                        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+                        <input type="hidden" name="_method" value="DELETE" />
+                        <input type="submit" value="DELETE" />
+                    </form>
+                <td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<a href="<%= new_user_path %>">New User</a>
