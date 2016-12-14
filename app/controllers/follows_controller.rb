@@ -6,8 +6,7 @@ class FollowsController < ApplicationController
     @follow.target_id = params[:target_id]
 
     if target.nil?
-      status(404)
-      erb :oops
+      not_found
     else
       if false == current_user.following?(target)
         Follow.create(user_id: current_user.id, target_id: params[:id])
@@ -15,19 +14,18 @@ class FollowsController < ApplicationController
       redirect back
     end
   end
-end
 
-def new
-  @follow = Follow.new
-end
+  def new
+    @follow = Follow.new
+  end
 
-def show
-  @follow = Follow.find(params[:id])
-end
+  def show
+    @follow = Follow.find(params[:id])
+  end
 
-def destroy
-  Follow.find(params[:id]).destroy
-  flash[:notice] = "User unfollowed!"
-end
+  def destroy
+    Follow.find(params[:id]).destroy
+    flash[:notice] = "User unfollowed!"
+  end
 
 end
