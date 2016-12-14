@@ -6,22 +6,22 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new
-    @post.title = params[:title]
-    @post.content = params[:content]
-    @post.user_id = params[:user_id]
+    @post = Post.new(post_params)
+    
+    # NOTE: Hardcoding user ID for post create
+    #       until we have implemented auth
+    @post.user_id = User.first.id
 
-    if params[:title] || params[:content] == ''
-      flash[:alert] = "All fields are required!"
-      redirect_to("/posts/new")
-    else 
-      @post.save
+    if @post.save
       flash[:notice] = "Post successfully created!"
-      redirect_to("/posts")
+      redirect_to(post_path(@post.id))
+    else
+      render('new')
     end
   end
 
   def new
+    @post = Post.new
   end
 
   def edit
@@ -59,4 +59,9 @@ class PostsController < ApplicationController
     flash[:notice] = "Post successfully deleted!"
     redirect_to("/posts")
   end
+
+  private
+    def post_params
+      params.require(:post).permit(:title, :content)
+    end
 end
