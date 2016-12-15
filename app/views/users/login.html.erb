@@ -1,16 +1,12 @@
-<h1>Members Log In Here</h1>
+<h1>Login</h1>
 
 <form action="/users" method="POST">
 	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
-    <label>User ID</label>
-    <input type="text" name="user[username]">
-    <br />
 
     <label>Email</label>
     <input type="text" name="user[email]">
-    <br />
 
-      <label>Password</label>
+    <label>Password</label>
     <input type="text" name="user[password]">
     <br />
     <input type="submit">
