@@ -13,10 +13,24 @@
  *= require_tree .
  *= require_self
  */
+* {
+    margin: 0;
+}
+
+html, body {
+    height: 100%
+}
+
 #main {
-	min-height: 400px;
+    min-height: 100%;
     background: url("https://media.mnn.com/assets/images/2016/07/Rainbow-Stretching-Hilly-Forest-Mountains.jpg.638x0_q80_crop-smart.jpg") no-repeat;
     background-size: cover;
+    margin-bottom: -150px;
+}
+
+#main:after {
+  content: "";
+  display: block;
 }
 
 nav {
@@ -38,6 +52,11 @@ nav {
 .container {
 	width: 400px;
 	margin: 0 auto;
+    font-size: 13px;
+}
+
+.container a {
+    font-size: 13px;
 }
 
 td {
@@ -49,7 +68,7 @@ td {
 }
 
 .fa {
-        font-size: 40px;
+    font-size: 40px;
  }
 
 a {
@@ -81,8 +100,12 @@ a:focus, a:hover {
     color: #ffebc0;
     padding-top: 40px;
     background: #333;
-    /*position: absolute;*/
-    bottom: 0;
+    position: relative;
+    height: 150px;
+}
+
+#site-footer:after {
+    height: 150px;
 }
 
 #bottomstrip {
@@ -92,7 +115,7 @@ a:focus, a:hover {
     text-align: center;
     /*vertical-align: middle;*/
     line-height: 40px;
-    /*position: absolute;*/
+    position: absolute;
     bottom: 0;
 }
 
