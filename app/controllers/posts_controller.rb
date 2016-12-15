@@ -7,7 +7,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    
+
     # NOTE: Hardcoding user ID for post create
     #       until we have implemented auth
     @post.user_id = User.first.id
@@ -41,7 +41,6 @@ class PostsController < ApplicationController
     else
       render("edit")
     end
-
   end
 
   def destroy
