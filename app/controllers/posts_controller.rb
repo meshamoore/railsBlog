@@ -1,16 +1,17 @@
 class PostsController < ApplicationController
 
-  # GET /posts
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :confirm_logged_in
+  before_action :confirm_post_owner, except: [:new]
+
   def index
-    @posts = Post.all
+    @posts = current_user.posts
   end
 
   def create
     @post = Post.new(post_params)
 
-    # NOTE: Hardcoding user ID for post create
-    #       until we have implemented auth
-    @post.user_id = User.first.id
+    @post.user_id = current_user.id
 
     if @post.save
       flash[:notice] = "Post successfully created!"
@@ -25,16 +26,12 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
   end
 
   def show
-    @post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find(params[:id])
-
     if @post.update(post_params)
       flash[:notice] = "Post successfully updated!"
       redirect_to(post_path(@post.id))
@@ -44,7 +41,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    Post.find(params[:id]).destroy
+    @post.destroy
     flash[:notice] = "Post successfully deleted!"
     redirect_to("/posts")
   end
@@ -52,5 +49,15 @@ class PostsController < ApplicationController
   private
     def post_params
       params.require(:post).permit(:title, :content)
+    end
+
+    def set_post
+      @post = Post.find(params[:id])
+    end
+
+    def confirm_post_owner
+      unless current_user.id == @post.user.id
+        not_found
+      end
     end
 end
