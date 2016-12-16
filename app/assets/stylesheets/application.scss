@@ -53,7 +53,7 @@ nav {
 }
 
 nav {
-	a {
+	.items a {
 		display: block;
 		font-size: 24px;
 		font-weight: bold;
@@ -183,7 +183,21 @@ button {
     }
 }
 
+.user-details {
+    margin-bottom: 50px;
+    h1 {
+        margin-bottom: 8px;
+    }
 
+    h1,
+    div {
+        text-align: center;
+    }
+}
+
+.user-posts {
+    text-align: center;
+}
 
 
 

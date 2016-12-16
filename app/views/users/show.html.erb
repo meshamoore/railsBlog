@@ -1,6 +1,12 @@
-<h1><%= @user.email %></h1>
-<br />
-<%= @user.id %><br />
-<%= @user.email %><br />
-<%= @user.password %><br />
-<a href="/users">Users Index</a>
+<div class="user-details">
+    <h1><%= @user.name %></h1>
+    <div><%= @user.email %></div>
+</div>
+
+<div class="user-posts">
+    <% @user.posts.each do |p| %>
+        <div class="post user-post">
+            <h1><a href="<%= post_path(p.id) %>"><%= p.title %></a></h1>
+        </div>
+    <% end %>
+</div>
