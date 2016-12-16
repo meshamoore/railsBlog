@@ -9,8 +9,8 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:notice] = "User successfully created!"
-      redirect_to("/users")
-    else 
+      redirect_to(new_post_path)
+    else
       render("new")
     end
   end
@@ -44,8 +44,11 @@ class UsersController < ApplicationController
     redirect_to("/users")
   end
 
-private
-  def user_params
-    params.require(:user).permit(:email, :name, :password)
+  def login
   end
+
+  private
+    def user_params
+      params.require(:user).permit(:email, :name, :password, :avatar)
+    end
 end

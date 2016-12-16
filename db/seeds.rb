@@ -27,6 +27,10 @@ Post.create(title: "post 10", content: "This is post 10.", user_id: 5)
 
 Comment.destroy_all
 Comment.create(content: "Dumb.", user_id: 1, post_id: 1)
+Comment.create(content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam!", user_id: 1, post_id: 1)
+Comment.create(content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam!", user_id: 1, post_id: 1)
+Comment.create(content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam!", user_id: 1, post_id: 1)
+Comment.create(content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam!", user_id: 1, post_id: 1)
 Comment.create(content: "Awesome post, Christy!", user_id: 2, post_id: 4)
 Comment.create(content: "Stupid.", user_id: 3, post_id: 6)
 Comment.create(content: "Whatever.", user_id: 4, post_id: 8)

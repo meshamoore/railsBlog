@@ -4,44 +4,38 @@
     <title>RailsBlog</title>
     <%= csrf_meta_tags %>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <title>Z-M-C Bloggin' on Rails</title>
 </head>
 <body>
     <nav>
-        <div class="container">
-            <a href="/register">Join Us</a>
-            <a href="/login">Log In</a>
-            <a href="/logout">Sign Out</a>
-        </div>
+        <% if current_user %>
+            <%= image_tag current_user.avatar.url(:thumb) %>
+            <a href="<%= root_path %>">Home</a>
+            <a href="<%= posts_path %>"><%= current_user.name %>'s Posts</a>
+            <a href="<%= new_post_path %>">New Post</a>
+            <a href="<%= logout_path %>">Sign Out </a>
+        <% else %>
+            <a href="<%= new_user_path %>">Join Us</a>
+            <a href="<%= login_path %>">Log In</a>
+        <% end %>
     </nav>
 
     <div id="main">
         <div class="container">
+            <% if flash[:notice] %>
+                <%= flash[:notice] %>
+            <% end %>
             <%= yield %>
         </div>
     </div>
 
     <div id="site-footer">
         <div class="container">
-            <div class="col-sm-6">
-                <p>Special Rails Blog by NYCDA-AUSTIN JANUARY 17</p>
-            </div>
-            <div class="col-sm-6">
-                <div id="social" class="pull-right">
-                    <a href="http://www.facebook.com"><i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i></a>
-                    <a href="http://www.twitter.com"><i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i></a>
-                </div>
-            </div> <!-- #site-footer -->
+            <p>Special Rails Blog by NYCDA-AUSTIN JANUARY 17</p>
         </div>
         <div id="bottomstrip">Come back and see us!</div>
     </div>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>
