@@ -6,18 +6,14 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new
-    @comment.content = params[:content]
-    @comment.user_id = params[:user_id]
-    @comment.post_id = params[:post_id]
+    @comment = Comment.new(comment_params)
+    @comment.user_id = current_user.id
 
-    if params[:content] == ''
-      flash[:alert] = "Please add a comment."
-      redirect_to("/comments/new")
-    else 
-      @comment.save
+    if @comment.save
       flash[:notice] = "Comment successfully created!"
-      redirect_to("/posts")
+      redirect_to :back
+    else
+      # render('posts/show')
     end
   end
 
@@ -29,4 +25,9 @@ class CommentsController < ApplicationController
     flash[:notice] = "Comment successfully deleted!"
     redirect_to("/posts")
   end
+
+  private
+    def comment_params
+      params.require(:comment).permit(:content, :post_id)
+    end
 end
