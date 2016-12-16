@@ -2,7 +2,7 @@ class PostsController < ApplicationController
 
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :confirm_logged_in
-  before_action :confirm_post_owner, except: [:new, :index]
+  before_action :confirm_post_owner, except: [:new, :index, :create]
 
   def index
     @posts = current_user.posts
@@ -56,7 +56,7 @@ class PostsController < ApplicationController
     end
 
     def confirm_post_owner
-      unless current_user.id == @post.user.id
+      unless current_user && current_user.id == @post.user.id
         not_found
       end
     end
