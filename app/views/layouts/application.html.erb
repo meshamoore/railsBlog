@@ -14,12 +14,18 @@
         <div class="container">
             <a href="#">Join Us</a>
             <a href="#">Log In</a>
-            <a href="#">Sign Out</a>
+            <a href="#">Sign Out </a>
         </div>
     </nav>
 
     <div id="main">
         <div class="container">
+            <% if flash[:notice] %>
+                <%= flash[:notice] %>
+            <% end %>
+            <% if current_user %>
+                <h3>Hello <%= current_user.name %>!</h3>
+            <% end %>
             <%= yield %>
         </div>
     </div>

@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   root 'pages#home'
   # get '/', to: 'pages#home'
 
-  get '/login',    to: 'users#login'
+  get '/login',    to: 'users#login', as: 'login'
   get '/register', to: 'users#new', as: 'new_user'
 
-  post 'session/create', to: 'sessions#create'
+  post '/sessions/create', to: 'sessions#create'
 
   get '/logout', to: 'users#logout'
 

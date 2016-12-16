@@ -1,14 +1,15 @@
 class SessionsController < ApplicationController
 
   def create
-  	@user = User.where(email: params[:email]).first
-  	if @user && @user.password == params[:password]
+    user = params[:user]
+  	@user = User.where(email: user[:email]).first
+  	if @user && @user.password == user[:password]
   		session[:user_id] = @user.id
-  		flash[:notice] = "you are logged in!"
-  			redirect_to users_path
+  		flash[:notice] = "You are logged in!"
+			redirect_to posts_path
   	else
   		flash[:notice] = "Bad credentials"
-  		redirect_to sessions_new_path
+  		redirect_to login_path
   	end
   end
 
