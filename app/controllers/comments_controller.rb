@@ -9,11 +9,12 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
 
-    if @comment.save
+    if !@comment.save
+      @post = @comment.post
+      render('posts/show')
+    else
       flash[:notice] = "Comment successfully created!"
       redirect_to :back
-    else
-      # render('posts/show')
     end
   end
 
