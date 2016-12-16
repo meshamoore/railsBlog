@@ -15,7 +15,7 @@
                 <%= image_tag current_user.avatar.url(:thumb) %>
             </div>
             <a class="first" href="<%= root_path %>">Home</a>
-            <a href="<%= posts_path %>">Posts</a>
+            <a href="<%= posts_path %>">Following</a>
             <a href="<%= new_post_path %>">New Post</a>
             <a href="<%= logout_path %>">Sign Out </a>
         <% else %>

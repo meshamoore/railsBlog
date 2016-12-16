@@ -5,6 +5,8 @@ class PostsController < ApplicationController
   before_action :confirm_post_owner, except: [:new, :index, :create]
 
   def index
+    # TODO: Show posts of users the current user is following
+    # TODO: Update template to show the author avatar to the left of the post title
     @posts = current_user.posts
   end
 

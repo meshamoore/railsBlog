@@ -1,29 +1,6 @@
-<table>
-    <thead>
-        <th>ID</th>
-        <th>POST</th>
-        <th>CONTENT</th>
-        <th><!-- show button --></th>
-        <th><!-- edit button --></th>
-        <th><!-- delete button --></th>
-    </thead>
-    <tbody>
-        <% @posts.each do |p| %>
-            <tr>
-                <td><%= p.id %></td>
-                <td><%= p.title %></td>
-                <td><%= p.content %></td>
-                <td><a href="<%= post_path(p.id) %>">Show</a><td>
-                <td><a href="<%= edit_post_path(p.id) %>">Edit</a><td>
-                <td>
-                    <form action="<%= post_path(p.id) %>" method="POST">
-                        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
-                        <input type="hidden" name="_method" value="DELETE" />
-                        <input type="submit" value="DELETE" />
-                    </form>
-                <td>
-            </tr>
-        <% end %>
-    </tbody>
-</table>
+<% @posts.each do |p| %>
+    <div class="post">
+        <h1><a href="<%= post_path(p.id) %>"><%= p.title %></a></h1>
+    </div>
+<% end %>
 
