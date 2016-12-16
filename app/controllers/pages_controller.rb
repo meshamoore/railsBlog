@@ -3,6 +3,4 @@ class PagesController < ApplicationController
 		@posts = Post.all
 		render('home')
 	end
-
-
 end

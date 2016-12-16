@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     if @user.save
       flash[:notice] = "User successfully created!"
       redirect_to(new_post_path)
-    else 
+    else
       render("new")
     end
   end
@@ -45,11 +45,6 @@ class UsersController < ApplicationController
   end
 
   def login
-    # log user in
-  end
-
-  def logout
-    session[:user_id] = nil
   end
 
   private
