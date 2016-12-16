@@ -2,18 +2,14 @@
     <thead>
         <th>ID</th>
         <th>NAME</th>
-        <th>EMAIL</th>
-        <th><!-- show button --></th>
         <th><!-- edit button --></th>
         <th><!-- delete button --></th>
     </thead>
     <tbody>
         <% @users.each do |u| %>
             <tr>
-                <td><%= u.id %></td>
+                <td><a href="<%= user_path(u.id) %>"><%= u.id %></a></td>
                 <td><%= u.name %></td>
-                <td><%= u.email %></td>
-                <td><a href="<%= user_path(u.id) %>">Show</a><td>
                 <td><a href="<%= edit_user_path(u.id) %>">Edit</a><td>
                 <td>
                     <form action="<%= user_path(u.id) %>" method="POST">

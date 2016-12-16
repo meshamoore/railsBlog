@@ -22,12 +22,16 @@ html, body {
     font-family: 'Myriad Pro', sans-serif;
 }
 
+.container {
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
 #main {
     background: #EEE;
-    padding-top: 40px;
+    padding: 40px 0px 60px;
     min-height: 100%;
     margin-bottom: -180px;
-    padding-bottom: 60px;
 }
 
 #main:after {
@@ -56,6 +60,9 @@ nav {
 		padding: 12px;
 		border-bottom: 1px solid #000;
         text-align: center;
+        &.first {
+            border-top: 1px solid #000;
+        }
 	}
 }
 
@@ -165,7 +172,16 @@ button {
     padding: 10px 3px 20px 3px;
 }
 
-
+.avatar {
+    text-align: center;
+    padding: 15px 0;
+    img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        display: inline-block;
+    }
+}
 
 
 
