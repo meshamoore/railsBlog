@@ -11,6 +11,7 @@
 <body>
     <nav>
         <% if current_user %>
+            <%= image_tag current_user.avatar.url(:thumb) %>
             <a href="<%= root_path %>">Home</a>
             <a href="<%= posts_path %>"><%= current_user.name %>'s Posts</a>
             <a href="<%= new_post_path %>">New Post</a>
