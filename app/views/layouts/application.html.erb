@@ -12,9 +12,13 @@
 <body>
     <nav>
         <div class="container">
-            <a href="#">Join Us</a>
-            <a href="#">Log In</a>
-            <a href="#">Sign Out </a>
+            <% if current_user %>
+                <a href="javascript:void(0)">Hello <%= current_user.name %>!</a>
+                <a href="<%= logout_path %>">Sign Out </a>
+            <% else %>
+                <a href="<%= new_user_path %>">Join Us</a>
+                <a href="<%= login_path %>">Log In</a>
+            <% end %>
         </div>
     </nav>
 
@@ -22,9 +26,6 @@
         <div class="container">
             <% if flash[:notice] %>
                 <%= flash[:notice] %>
-            <% end %>
-            <% if current_user %>
-                <h3>Hello <%= current_user.name %>!</h3>
             <% end %>
             <%= yield %>
         </div>
@@ -40,7 +41,7 @@
                     <a href="http://www.facebook.com"><i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i></a>
                     <a href="http://www.twitter.com"><i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i></a>
                 </div>
-            </div> <!-- #site-footer -->
+            </div>
         </div>
     </div>
 
