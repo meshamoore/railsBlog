@@ -1,7 +1,12 @@
 <h1><%= @post.title %></h1>
-<br />
-<%= @post.id %><br />
 <div class="post-body">
 	<%= @post.content %>
 </div>
+<% @post.comments.each do |c| %>
+    <div class="comment">
+        <p><%= c.content %></p>
+        <span class="author">by: <%= c.user.name %></span>
+        <span class="time"><%= time_ago_in_words(c.created_at) %> ago </span>
+    </div> <!-- .comment -->
+<% end %>
 <a href="/posts">Posts Index</a>
