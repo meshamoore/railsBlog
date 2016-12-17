@@ -8,11 +8,20 @@
 
 
 User.destroy_all
-User.create(name: "mesha", email: "foo@bar.com", password: "mesha")
-User.create(name: "christy", email: "foo@bar.com", password: "christy")
-User.create(name: "zach", email: "foo@bar.com", password: "zach")
-User.create(name: "justin", email: "foo@bar.com", password: "justin")
-User.create(name: "other", email: "foo@bar.com", password: "other")
+m = User.create(name: "mesha", email: "foo@bar.com", password: "mesha")
+c = User.create(name: "christy", email: "foo@bar.com", password: "christy")
+z = User.create(name: "zach", email: "foo@bar.com", password: "zach")
+j = User.create(name: "justin", email: "foo@bar.com", password: "justin")
+o = User.create(name: "other", email: "foo@bar.com", password: "other")
+
+m.follow(c)
+c.follow(m)
+z.follow(c)
+z.follow(m)
+j.follow(m)
+j.follow(c)
+j.follow(z)
+o.follow(m)
 
 Post.destroy_all
 Post.create(title: "post 1", content: "This is post 1.", user_id: User.first.id)
