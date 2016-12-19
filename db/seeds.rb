@@ -26,16 +26,25 @@ other.follow(justin)
 
 Post.destroy_all
 
-Post.create(title: "post 1", content: "This is post 1.", user_id: mesha.id)
-Post.create(title: "post 2", content: "This is post 2.", user_id: mesha.id)
-Post.create(title: "post 3", content: "This is post 3.", user_id: zach.id)
-Post.create(title: "post 4", content: "This is post 4.", user_id: zach.id)
-Post.create(title: "post 5", content: "This is post 5.", user_id: christy.id)
-Post.create(title: "post 6", content: "This is post 6.", user_id: christy.id)
-Post.create(title: "post 7", content: "This is post 7.", user_id: justin.id)
-Post.create(title: "post 8", content: "This is post 8.", user_id: justin.id)
-Post.create(title: "post 9", content: "This is post 9.", user_id: other.id)
-Post.create(title: "post 10", content: "This is post 10.", user_id: other.id)
+post_content = <<~EOS
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+EOS
+
+Post.create(title: "post 1", content: post_content, user_id: mesha.id)
+Post.create(title: "post 2", content: post_content, user_id: mesha.id)
+Post.create(title: "post 3", content: post_content, user_id: zach.id)
+Post.create(title: "post 4", content: post_content, user_id: zach.id)
+Post.create(title: "post 5", content: post_content, user_id: christy.id)
+Post.create(title: "post 6", content: post_content, user_id: christy.id)
+Post.create(title: "post 7", content: post_content, user_id: justin.id)
+Post.create(title: "post 8", content: post_content, user_id: justin.id)
+Post.create(title: "post 9", content: post_content, user_id: other.id)
+Post.create(title: "post 10", content: post_content, user_id: other.id)
 
 Comment.destroy_all
 zach.posts.first.comments.create(user_id: mesha.id, content: 'Dumb!')
