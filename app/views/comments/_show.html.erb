@@ -1,5 +1,5 @@
 <div class="comment">
     <p><%= comment.content %></p>
-    <span class="author">by: <%= comment.user.name %></span>
+    <span class="author"><a href="<%= user_path(comment.user.id) %>"><%= comment.user.name %></a></span>
     <span class="time"><%= time_ago_in_words(comment.created_at) %> ago </span>
 </div> <!-- .comment -->

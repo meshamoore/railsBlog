@@ -29,15 +29,22 @@
 <div class="user-posts">
     <% @user.posts.each do |p| %>
         <div class="post user-post">
-            <h1><a href="<%= post_path(p.id) %>"><%= p.title %></a></h1>
+            <h4>
+                <a href="<%= user_path(p.user.id) %>">
+                    <div class="avatar">
+                        <%= image_tag p.user.avatar.url(:thumb) %>
+                    </div>
+                </a>
+            </h4>
+            <h2 class="post-title">
+                <a href="<%= post_path(p.id) %>">
+                    <%= p.title %>
+                </a>
+            </h2>
             <div class="post-body"><%= p.content %></div>
-            <div>
-            	<b>By:</b>
-            	&nbsp;
-				<span class="author"><%= p.user.name %></span>
-				<b>Published:</b>
-				&nbsp;
-				<span class="published"><%= time_ago_in_words(p.created_at) %></span>
+            <div class="post-meta">
+            	<span class="author"><a href="<%= user_path(p.user.id) %>"><%= p.user.name %></a></span>
+				<span class="published">published <%= time_ago_in_words(p.created_at) %> ago</span>
             </div>
         </div>
     <% end %>

@@ -93,7 +93,7 @@ a {
 }
 
 a:focus, a:hover {
-   color: white;
+   color: black;
 }
 
 .fa-facebook {
@@ -198,6 +198,10 @@ button {
     text-align: center;
 }
 
-
+textarea {
+    width: 100%;
+    border: 0;
+    margin-bottom: 20px;
+}
 
 
