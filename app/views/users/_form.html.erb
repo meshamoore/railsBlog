@@ -31,3 +31,9 @@
         <%= f.submit %>
     </div>
 <% end %>
+
+<%= form_for @user, method: :delete do |f| %>
+    <%= f.submit "Delete" %>
+<% end %>
+
+
