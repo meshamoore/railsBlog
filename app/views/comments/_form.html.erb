@@ -10,7 +10,7 @@
         </div>
     <% end %>
     <div class="field">
-        <%= f.text_area :content, size: "60x12" %>
+        <%= f.text_area :content, size: "60x3" %>
     </div>
     <input type="hidden" name="comment[post_id]" value="<%= @post.id %>">
     <%= f.submit %>
