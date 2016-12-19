@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 	def home
-		@posts = Post.all
+		@posts = current_user ? current_user.feed : Post.all
 		render('home')
 	end
 end

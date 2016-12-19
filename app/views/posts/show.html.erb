@@ -1,4 +1,4 @@
-<h1><%= @post.title %></h1>
+<h1><%= @post.title %> - <%= @post.user.name %></h1>
 <div class="post-body">
 	<%= @post.content %>
 </div>
@@ -15,7 +15,6 @@
         </div>
     <% end %>
     <div class="field">
-        <%= f.label :content %>
         <%= f.text_area :content, size: "60x12" %>
     </div>
     <input type="hidden" name="comment[post_id]" value="<%= @post.id %>">

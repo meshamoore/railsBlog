@@ -34,6 +34,7 @@ Post.create(title: "post 7", content: "This is post 7.", user_id: User.first.id)
 Post.create(title: "post 8", content: "This is post 8.", user_id: User.first.id)
 Post.create(title: "post 9", content: "This is post 9.", user_id: User.first.id)
 Post.create(title: "post 10", content: "This is post 10.", user_id: User.first.id)
+c.posts.create(title: "Christy's Post!", content: 'This is a post!')
 
 Comment.destroy_all
 Comment.create(content: "Dumb.", user_id: User.first.id, post_id: Post.first.id)
