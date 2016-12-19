@@ -29,9 +29,13 @@ html, body {
 
 #main {
     background: #EEE;
-    padding: 40px 0px 60px;
+    padding: 40px 0px 0;
     min-height: 100%;
-    margin-bottom: -180px;
+    margin-bottom: -190px;
+}
+
+#main > .container {
+    padding-bottom: 60px;
 }
 
 #main:after {
@@ -41,7 +45,7 @@ html, body {
 
 #site-footer,
 #main:after {
-    height: 130px;
+    height: 190px;
 }
 
 h1 {
@@ -146,6 +150,7 @@ button {
     color: #fff;
     padding: 10px;
     width: 100%;
+    cursor: pointer;
 }
 
 .post {
@@ -199,13 +204,6 @@ button {
 .user-posts {
     text-align: center;
 }
-
-
-
-
-
-
-
 
 
 
