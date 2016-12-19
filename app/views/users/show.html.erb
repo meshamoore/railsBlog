@@ -1,7 +1,29 @@
+<div class="avatar-big">
+    <a href="<%= user_path(current_user.id) %>">
+        <%= image_tag current_user.avatar.url(:medium) %>
+    </a>
+</div>
 <div class="user-details">
     <h1><%= @user.name %></h1>
     <div><%= @user.email %></div>
-    <a href="<%= edit_user_path %>">Edit Profile</a>
+
+    <% if current_user.id == @user.id %>
+    	<a href="<%= edit_user_path %>">Edit Profile</a>
+    <% end %>
+
+    <% if current_user && !current_user.following?(@user) %>
+        <form action="<%= follows_path %>" method="POST">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+            <input type="hidden" name="target_id" value="<%= @user.id %>" />
+            <input type="submit" value="Follow" />
+        </form>
+    <% else %>
+        <form action="<%= follow_path(current_user.get_follow(@user).id) %>" method="POST">
+            <input type="hidden" name="_method" value="DELETE" />
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+            <input type="submit" value="Unfollow" />
+        </form>
+    <% end %>
 </div>
 
 <div class="user-posts">

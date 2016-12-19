@@ -188,6 +188,17 @@ button {
     }
 }
 
+.avatar-big {
+    text-align: center;
+    padding: 15px 0;
+    img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        display: inline-block;
+    }
+}
+
 .user-details {
     text-align: center;
     margin-bottom: 50px;
