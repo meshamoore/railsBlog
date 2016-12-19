@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 20161216215320) do
     t.integer  "target_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id", "target_id"], name: "index_follows_on_user_id_and_target_id", unique: true
   end
 
   create_table "posts", force: :cascade do |t|
