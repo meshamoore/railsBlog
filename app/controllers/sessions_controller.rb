@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
   	if @user && @user.password == user[:password]
   		session[:user_id] = @user.id
   		flash[:notice] = "You are logged in!"
-			redirect_to posts_path
+			redirect_to root_path
   	else
   		flash[:notice] = "Bad credentials"
   		redirect_to login_path

@@ -18,16 +18,13 @@
             </div>
             <div class="items">
                 <a class="first" href="<%= root_path %>">Home</a>
-                <a href="<%= posts_path %>">Following</a>
                 <a href="<%= new_post_path %>">New Post</a>
                 <a href="<%= logout_path %>">Sign Out </a>
-                <a href="<%= users_path %>">Users</a>
             </div>
         <% else %>
             <div class="items">
                 <a href="<%= new_user_path %>">Join Us</a>
                 <a href="<%= login_path %>">Log In</a>
-                <a href="<%= users_path %>">Users</a>
             </div>
         <% end %>
     </nav>

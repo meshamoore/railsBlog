@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-# GET /users
+
+  before_action :confirm_logged_in, only: [:index, :update, :edit, :show]
+
   def index
     @users = User.all
   end
@@ -36,12 +38,6 @@ class UsersController < ApplicationController
     else
       render("edit")
     end
-  end
-
-  def destroy
-    User.find(params[:id]).destroy
-    flash[:notice] = "User successfully deleted!"
-    redirect_to("/users")
   end
 
   private

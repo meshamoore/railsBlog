@@ -8,8 +8,8 @@ Rails.application.routes.draw do
 
   get '/register', to: 'users#new', as: 'new_user'
 
-  resources :users, except: [:new]
-  resources :posts
+  resources :users, except: [:new, :destroy]
+  resources :posts, except: [:index]
   resources :comments, except: [:index, :edit, :update]
   resources :follows, except: [:index, :edit, :update]
 end

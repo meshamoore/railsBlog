@@ -2,13 +2,7 @@ class PostsController < ApplicationController
 
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :confirm_logged_in
-  before_action :confirm_post_owner, except: [:new, :index, :create]
-
-  def index
-    # TODO: Show posts of users the current user is following
-    # TODO: Update template to show the author avatar to the left of the post title
-    @posts = current_user.posts
-  end
+  before_action :confirm_post_owner, except: [:new, :create]
 
   def create
     @post = Post.new(post_params)
