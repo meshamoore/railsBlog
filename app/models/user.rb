@@ -22,6 +22,10 @@ class User < ApplicationRecord
     following.include?(user)
   end
 
+  def get_follow(user)
+    Follow.where(user_id: self.id, target_id: user.id).first
+  end
+
   def feed
     following_ids = "SELECT target_id FROM follows WHERE user_id = :user_id"
     Post.where("user_id IN (#{following_ids}) OR user_id = :user_id", user_id: id)
