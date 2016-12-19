@@ -1,4 +1,4 @@
-<h1><%= @post.title %></h1>
+<h1 class="post-title"><%= @post.title %></h1>
 <div class="post-meta">
     <b>By:</b>
     &nbsp;
@@ -6,7 +6,7 @@
     <br />
     <b>Published:</b>
     &nbsp;
-    <span class="published"><%= time_ago_in_words(@post.created_at) %></span
+    <span class="published"><%= time_ago_in_words(@post.created_at) %></span>
 </div> <!-- .post-meta -->
 
 <div class="post-body">
