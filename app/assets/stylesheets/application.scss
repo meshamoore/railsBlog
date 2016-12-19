@@ -159,21 +159,21 @@ button {
 }
 
 .post-name {
-    border: 2px solid #000000;
+    // border: 2px solid #000000;
     padding: 1px 1px 1px 1px;
     color: #678c47;
-    float: left;
+    // float: left;
 }
 
 .post-title {
-    border: 2px solid #000000;
+    // border: 2px solid #000000;
     padding: 1px 1px 1px 1px;
     text-align: center;
 
 }
 
 .post-content {
-    border: 2px solid #000000;
+    // border: 2px solid #000000;
     padding: 10px 3px 20px 3px;
 }
 
@@ -184,7 +184,8 @@ button {
         width: 100px;
         height: 100px;
         border-radius: 50%;
-        display: inline-block;
+        display: block;
+        margin: 0 auto;
     }
 }
 
